@@ -1,0 +1,201 @@
+!DOCTYPE html
+html lang=en
+head
+meta charset=UTF-8
+titleVirtual Hug Gardentitle
+
+style
+     {
+        margin 0;
+        padding 0;
+        box-sizing border-box;
+    }
+
+    body {
+        height 100vh;
+        overflow hidden;
+        font-family 'Segoe UI', sans-serif;
+    }
+
+     🌸 Garden Background 
+    .garden {
+        width 100%;
+        height 100vh;
+        background linear-gradient(to top, #7bc67b, #c9f0c9, #87ceeb);
+        position relative;
+    }
+
+     🌼 Flowers 
+    .flower {
+        position absolute;
+        bottom 0;
+        width 60px;
+        height 60px;
+        background radial-gradient(circle, yellow 30%, pink 31%, pink 60%, transparent 61%);
+        border-radius 50%;
+        animation sway 4s ease-in-out infinite alternate;
+    }
+
+    .flowernth-child(1) { left 10%; animation-delay 0s; }
+    .flowernth-child(2) { left 30%; animation-delay 1s; }
+    .flowernth-child(3) { left 50%; animation-delay 2s; }
+    .flowernth-child(4) { left 70%; animation-delay 1.5s; }
+    .flowernth-child(5) { left 90%; animation-delay 0.5s; }
+
+    @keyframes sway {
+        from { transform rotate(-5deg); }
+        to { transform rotate(5deg); }
+    }
+
+     👩‍🦱👨 Characters 
+    .character {
+        position absolute;
+        bottom 80px;
+        width 120px;
+        height 220px;
+        transition all 3s ease-in-out;
+    }
+
+    .male {
+        left -150px;
+    }
+
+    .female {
+        right -150px;
+    }
+
+     Face 
+    .face {
+        width 100px;
+        height 100px;
+        background #ffddb3;
+        border-radius 50%;
+        margin auto;
+        position relative;
+    }
+
+    .eye {
+        width 10px;
+        height 10px;
+        background #000;
+        border-radius 50%;
+        position absolute;
+        top 35px;
+    }
+
+    .eye.left { left 25px; }
+    .eye.right { right 25px; }
+
+    .smile {
+        width 40px;
+        height 20px;
+        border-bottom 3px solid #000;
+        border-radius 0 0 50px 50px;
+        position absolute;
+        bottom 20px;
+        left 30px;
+    }
+
+     Body 
+    .body {
+        width 80px;
+        height 100px;
+        background #ff6f61;
+        margin auto;
+        border-radius 20px;
+    }
+
+    .female .body {
+        background #ff69b4;
+    }
+
+     Hug Effect 
+    .hug {
+        transform scale(1.05);
+        filter drop-shadow(0 0 20px pink);
+    }
+
+     ❤️ Heart 
+    .heart {
+        position absolute;
+        top 30%;
+        left 50%;
+        transform translateX(-50%);
+        font-size 0;
+        opacity 0;
+        transition all 1s ease;
+    }
+
+    .heart.show {
+        font-size 80px;
+        opacity 1;
+        animation pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+        from { transform translateX(-50%) scale(1); }
+        to { transform translateX(-50%) scale(1.2); }
+    }
+
+style
+head
+
+body
+
+div class=garden
+
+    !-- Flowers --
+    div class=flowerdiv
+    div class=flowerdiv
+    div class=flowerdiv
+    div class=flowerdiv
+    div class=flowerdiv
+
+    !-- ❤️ Heart --
+    div class=heart id=heart❤️div
+
+    !-- 👨 Male --
+    div class=character male id=male
+        div class=face
+            div class=eye leftdiv
+            div class=eye rightdiv
+            div class=smilediv
+        div
+        div class=bodydiv
+    div
+
+    !-- 👩 Female --
+    div class=character female id=female
+        div class=face
+            div class=eye leftdiv
+            div class=eye rightdiv
+            div class=smilediv
+        div
+        div class=bodydiv
+    div
+
+div
+
+script
+    window.onload = () = {
+        const male = document.getElementById('male');
+        const female = document.getElementById('female');
+        const heart = document.getElementById('heart');
+
+         Walk In
+        setTimeout(() = {
+            male.style.left = '35%';
+            female.style.right = '35%';
+        }, 300);
+
+         Hug
+        setTimeout(() = {
+            male.classList.add('hug');
+            female.classList.add('hug');
+            heart.classList.add('show');
+        }, 3500);
+    };
+script
+
+body
+html
